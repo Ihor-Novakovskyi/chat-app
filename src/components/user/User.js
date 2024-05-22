@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import Lighting from '../chat/Lighting';
 import './User.css'
 import Person from './Person.js'; 
-export default function User({requestProps}) { 
+export default function User({ requestProps, time: {hours, minutes } }) { 
     return (
         <div className="user">
             <div className="user__header">
@@ -15,7 +15,9 @@ export default function User({requestProps}) {
                         You
                     </span>
                 </div>
-                <span className="timer">1m ago</span>
+                <span className="timer">
+                    {hours ? `${hours}h ${minutes}m ago` :  `${minutes}m ago`}
+                </span>
             </div>
             <div className="user__greetings-wrapper">
                 <span className="user__greetings-text">Hi GI:</span>

@@ -3,7 +3,16 @@ import ReactDOM from 'react-dom/client';
 import "./Chat.css"
 import Lighting from './Lighting';
 
-export default function Chat({responseProps}) { 
+export default function Chat({ responseProps, time: { hours, minutes } }) { 
+    const text = responseProps
+        .split(' ')
+        .map((el) => { 
+            return (
+                <span className="chat__message-text">
+                    {`${el} `}
+                </span>
+            )
+        });
     return (
         <div className="chat">
             <div className="chat__header">
@@ -16,14 +25,12 @@ export default function Chat({responseProps}) {
                     </span>
                 </div>
                 <span className="timer">
-                    1m ago
+                {hours ? `${hours}h ${minutes}m ago` :  `${minutes}m ago`}
                 </span>
             </div>
             
             <div className="chat__message-wrapper">
-                <span className="chat__message-text">
-                    {responseProps}
-                </span>
+                {text}
             </div>
         </div>
     )

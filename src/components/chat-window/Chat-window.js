@@ -52,7 +52,7 @@ export default function ChatWindow() {
         if (inputData.length && socketOpen) {
             setDisabled(true)
             setInputData('')
-            setChatData(prevData => [...prevData, { userRequest: inputData }])
+            setChatData(prevData => [...prevData, { userRequest: inputData, startTimeRequest: new Date() }])
             socket.send(createRequestMesage(inputData))
         }
     }
@@ -86,11 +86,22 @@ export default function ChatWindow() {
 
 function UserChatComponent({ chatprops }) { 
 
-    return chatprops.map(({userRequest,chatResponse},id) => { 
+    return chatprops.map(({ userRequest, chatResponse, startTimeRequest }, id) => { 
+        const timeDifference = new Date() - startTimeRequest;
+        let minutes = Math.round(timeDifference / (1000 * 60));
+        let hours = 0;
+        if (minutes > 60) { 
+            hours = Math.floor(minutes / 60);
+            minutes = minutes - (hours * 60);
+        }
+        const time = {
+            hours,
+            minutes
+        }
         return (
             <Fragment>
-                { userRequest ? <User requestProps={ userRequest } key={id} /> : null}
-                { chatResponse ? <Chat responseProps={ chatResponse } key={id + 1} /> : null}
+                { userRequest ? <User requestProps={ userRequest } time={time} key={id} /> : null}
+                { chatResponse ? <Chat responseProps={ chatResponse } time={time} key={id + 1} /> : null}
             </Fragment>
         )
     })
