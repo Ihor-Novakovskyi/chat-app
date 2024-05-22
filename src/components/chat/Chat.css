@@ -30,7 +30,7 @@
 
 .chat__message-text {
     opacity: 0;
-    animation: textDelay 0.5s forwards;
+    animation: textDelay 1s forwards;
   }
   
   @keyframes textDelay {

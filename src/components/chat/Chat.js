@@ -7,6 +7,18 @@ export default function Chat({ responseProps, time: { hours, minutes } }) {
     const text = responseProps
         .split(' ')
         .map((el) => { 
+            // if (el.length) { 
+            //     return el
+            //         .split('')
+            //         .map((later, id, arr) => { 
+            //             const lengthWord = arr.length;
+            //             return (
+            //                 <span className='chat__message-text'>
+            //                 {id !== lengthWord - 1 ? `${later}` : `${later} `}
+            //             </span>
+            //             )
+            //         })
+            // }
             return (
                 <span className="chat__message-text">
                     {`${el} `}
