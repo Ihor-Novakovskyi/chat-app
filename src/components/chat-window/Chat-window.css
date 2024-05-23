@@ -34,7 +34,7 @@
     background-color:var(--background-form-request);
     font-size: var(--general-text-size);
 }
-.form-requset__button{
+/* .form-requset__button{
     display: flex;
     align-items:center;
     justify-content: center;
@@ -42,4 +42,4 @@
     flex-grow: 0;
     border: none;
     background-color:var(--background-form-request);
-}
+} */

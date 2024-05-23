@@ -15,7 +15,7 @@ export default function User({ requestProps, time: {hours, minutes } }) {
                         You
                     </span>
                 </div>
-                <span className="timer">
+                <span className="user__timer">
                     {hours ? `${hours}h ${minutes}m ago` :  `${minutes}m ago`}
                 </span>
             </div>

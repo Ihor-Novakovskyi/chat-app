@@ -1,9 +1,13 @@
 html{
+  --small-text-size: 12px;
   --general-text-size: 16px;
+  --bix-text-size: 20px;
   --general-background-color: black;
   --dialog-backgound-color:#061205;
   --font-color: white;
   --background-form-request:#262626;
+  --background-yellow: #e6e600;
+  --user-color: #d966ff;
 }
 body {
   margin: 0;

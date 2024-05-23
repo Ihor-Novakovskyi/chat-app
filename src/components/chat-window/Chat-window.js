@@ -1,9 +1,9 @@
 import React, {useState, useEffect, useMemo, Fragment} from 'react';
-import ReactDOM from 'react-dom';
+import Ad from '../ad/Ad';
 import User from '../user/User';
 import Chat from '../chat/Chat';
-import Arrow from '../arrow/Arrow';
 import CreateSocket from '../../chatRequest';
+import RequestButton from '../requestButton/RequestButton';
 import './Chat-window.css'
 export default function ChatWindow() { 
     const [chatData, setChatData] = useState([]);
@@ -13,7 +13,6 @@ export default function ChatWindow() {
     const [socket, setSocket] = useState(null); 
     const [disabled, setDisabled] = useState(false)
     function memoised() { 
-        console.log(socketOpen, error, socket)
         const socketProps = {
             url: 'wss://gi-llm.gromus.io/test_task/websockets',
             setOpen: setSocketOpen,
@@ -25,7 +24,6 @@ export default function ChatWindow() {
     } 
     const { createRequestMesage, startSocket } = useMemo(memoised)
     function setDataResponse(data) { 
-        console.log(typeof data)
         if (data !== "<|endoftext|>") { 
             setChatData((prev) => { 
                 if (prev.length) {
@@ -35,7 +33,6 @@ export default function ChatWindow() {
                         updatingProps.chatResponse = `${updatingProps.chatResponse} ${data}`
                         :
                         updatingProps.chatResponse = data;
-                    console.log(propsData)
                     return propsData
                 }
             })
@@ -59,6 +56,7 @@ export default function ChatWindow() {
     useEffect(startSocket, [])
     return (
         <div className="chat-window">
+            <Ad/>
             <div className="chat-window__dialog">
                 <UserChatComponent chatprops={chatData} />
             </div>
@@ -74,11 +72,7 @@ export default function ChatWindow() {
                     value={ inputData }
                     onChange={changeInputData}
                 />
-                <button
-                    disabled={disabled}
-                    className='form-requset__button'>
-                    <Arrow/>
-                </button>
+                <RequestButton disabled={disabled}/>
             </form> 
         </div>
      )

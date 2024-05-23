@@ -18,7 +18,6 @@ export default function CreateSocket({ url, setOpen, setError, setData, setSocke
   function startSocket() { 
     const socket = new WebSocket(url);
     const getOpenSocket = (e) => { 
-      console.log('Соединение установлено');
       setOpen(true)
       setError(false)
       setSocket(socket)
@@ -34,7 +33,6 @@ export default function CreateSocket({ url, setOpen, setError, setData, setSocke
     }
     const getSocketMessage = (e) => { 
       const message = e.data;
-      console.log('Получено сообщение от сервера:', message);
       setData(JSON.parse(message)["Text"])
     }
     const closedSocket = () => { 
@@ -45,16 +43,12 @@ export default function CreateSocket({ url, setOpen, setError, setData, setSocke
       socket.removeEventListener('message', getSocketMessage);
       socket.removeEventListener('error', getError);
   
-      console.log('Соединение закрыто');
     }
-    // Событие открытия соединения
     socket.addEventListener('open',getOpenSocket);
     socket.addEventListener('message', getSocketMessage);
     
-    // Событие закрытия соединения
     socket.addEventListener('close',closedSocket);
     
-    // Событие возникновения ошибки
     socket.addEventListener('error', getError);
   }  
   return {

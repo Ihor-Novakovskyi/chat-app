@@ -32,11 +32,11 @@ export default function Chat({ responseProps, time: { hours, minutes } }) {
                     <div className="chat__image">
                         <Lighting/>
                     </div>
-                    <span>
+                    <span className='chat__name'>
                         GE
                     </span>
                 </div>
-                <span className="timer">
+                <span className="chat__timer">
                 {hours ? `${hours}h ${minutes}m ago` :  `${minutes}m ago`}
                 </span>
             </div>

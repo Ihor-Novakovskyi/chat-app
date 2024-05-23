@@ -1,0 +1,33 @@
+.add{
+    display: flex;
+    flex-direction: column;
+    background-color:var(--background-yellow);
+    padding: 14px 12px;
+    align-items:flex-start;
+}
+.add__plan{
+    font-size: var(--small-text-size);
+    margin-bottom: 8px;
+    color: grey;
+}
+.add__slogan{
+    font-size: var(--bix-text-size);
+    color: var(--general-background-color);
+    font-weight: bold;
+    margin-bottom: 16px;
+}
+.add__action-buy-plan{
+    border-radius:4px;
+    padding: 4px 8px ;
+    color:var(--font-color);
+    background-color:var(--general-background-color);
+    font-size: var(--bix-text-size);
+    border: none;
+    cursor: pointer;
+}
+.add__action-buy-plan:hover{
+color:var(--background-yellow)
+}
+.add__action-buy-plan:active{
+    scale: 0.5;
+}

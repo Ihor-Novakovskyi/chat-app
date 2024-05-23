@@ -14,11 +14,14 @@
     width: 32px;
     height: 32px;
     border-radius: 50%;
-    background-color: #d966ff;
+    background-color: var(--user-color);
 }
 .user__greetings-wrapper{
     padding: 0px 4px;
     margin-bottom: 8px;
+}
+.user__message-wrapper{
+    padding-left: 4px;
 }
 .user__wrapper-inside-header{
     display: flex;
@@ -26,4 +29,10 @@
     align-items: center;
     gap: 8px;
     margin-bottom: 8px;
+}
+.user__name{
+    font-size: var(--bix-text-size);
+}
+.user__timer{
+    font-size: var(--small-text-size);
 }
