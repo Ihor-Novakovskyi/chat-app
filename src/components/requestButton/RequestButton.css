@@ -1,13 +1,20 @@
-.form-requset__button{
+.form-request__button {
     display: flex;
-    align-items:center;
+    align-items: center;
     justify-content: center;
     flex-basis: 30px;
     flex-grow: 0;
     border: none;
-    background-color:var(--background-form-request);
+    background-color: var(--background-form-request);
     cursor: pointer;
 }
-.form-requset__button:active svg{
+
+.form-request__button--able:active svg {
     scale: 0.9;
+}
+
+.form-request__button-disabled {
+    scale: 1;
+    background-color: var(--background-form-request);
+    border: none
 }

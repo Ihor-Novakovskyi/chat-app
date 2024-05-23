@@ -3,7 +3,7 @@ import React from 'react'
 export default function Arrow({colorArrow}) { 
     return (
         <svg
-            style={ { width: "30px", height: "30px", fill: "none" } } viewBox="0 0 21.00 21.00" id="meteor-icon-kit__solid-paper-plane" xmlns="http://www.w3.org/2000/svg">
+            style={ { width: "32px", height: "32px", fill: "none" } } viewBox="0 0 21.00 21.00" id="meteor-icon-kit__solid-paper-plane" xmlns="http://www.w3.org/2000/svg">
             <g id="SVGRepo_bgCarrier" strokeWidth="0">
             </g>
             <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round">

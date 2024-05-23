@@ -1,9 +1,8 @@
 import React, {useState, useEffect, useMemo, Fragment} from 'react';
 import Ad from '../ad/Ad';
-import User from '../user/User';
-import Chat from '../chat/Chat';
 import CreateSocket from '../../chatRequest';
 import RequestButton from '../requestButton/RequestButton';
+import UserChatComponent from '../userChatComponent/UserChatComponent';
 import './Chat-window.css'
 export default function ChatWindow() { 
     const [chatData, setChatData] = useState([]);
@@ -72,31 +71,11 @@ export default function ChatWindow() {
                     value={ inputData }
                     onChange={changeInputData}
                 />
-                <RequestButton disabled={disabled}/>
+                <RequestButton disabled={!inputData || disabled}/>
             </form> 
         </div>
      )
 }
 
-function UserChatComponent({ chatprops }) { 
 
-    return chatprops.map(({ userRequest, chatResponse, startTimeRequest }, id) => { 
-        const timeDifference = new Date() - startTimeRequest;
-        let minutes = Math.round(timeDifference / (1000 * 60));
-        let hours = 0;
-        if (minutes > 60) { 
-            hours = Math.floor(minutes / 60);
-            minutes = minutes - (hours * 60);
-        }
-        const time = {
-            hours,
-            minutes
-        }
-        return (
-            <Fragment>
-                { userRequest ? <User requestProps={ userRequest } time={time} key={id} /> : null}
-                { chatResponse ? <Chat responseProps={ chatResponse } time={time} key={id + 1} /> : null}
-            </Fragment>
-        )
-    })
-}
+
